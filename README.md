@@ -10,6 +10,8 @@
 - Enter in your shell (PowerShell, bash, zsh):
 `git clone https://github.com/SXHRYU/Tetrika_slavaitru.git`
 - Install [Python](https://www.python.org/downloads/).
+- Install dependencies by typing in your shell:
+`pip install -r .\requirements.txt`
 - Explore the files.
 
 ## Contacts
