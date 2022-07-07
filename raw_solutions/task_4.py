@@ -72,9 +72,9 @@ def get_first_interval(person_times: list[int], lesson_time: list[int]) -> int:
         if (leave_times[mid] > lesson[0] 
             and leave_times[mid-1] > lesson[0] 
             and mid - 1 != -1):
-            right -= 1
+            right = mid - 1
         elif leave_times[mid] < lesson[0]:
-            left += 1
+            left = mid + 1
         elif leave_times[mid] > lesson[0]:
             return mid
 
@@ -100,14 +100,14 @@ def get_last_interval(person_times: list[int], lesson_time: list[int]) -> int:
     right = len(arrival_times) - 1
     while left <= right:
         mid = (left + right) // 2
-        if mid + 1 < len(arrival_times):
+        if arrival_times[mid] > lesson[1]:
+            right = mid - 1 
+        elif mid + 1 < len(arrival_times):
             if (arrival_times[mid] < lesson[1] 
                 and arrival_times[mid+1] < lesson[1]):
-                left += 1
+                left = mid + 1
             elif arrival_times[mid] < lesson[1]:
                 return mid
-        elif arrival_times[mid] > lesson[1]:
-            right -= 1
         elif arrival_times[mid] < lesson[1]:
             return mid
 
